@@ -61,14 +61,20 @@ function changeHP(player) {
   console.log(changeHP);
 
   if (player.hp <= 0) {
-    $arenas.appendChild(playerWins(player.name));
     $playerLife.style.width = 0 + '%';
     $randomBatton.disabled = true;
+    if (player1.hp > player2.hp) {
+      $arenas.appendChild(playerWins(player1.name));
+    } 
+    if (player1.hp < player.hp2) {
+      $arenas.appendChild(playerWins(player2.name));
+    }
   } 
+  
 }
 
 function playerWins(name) {
-  const $winsTitle = createElement('div', 'loseTitle');
+  const $winsTitle = createElement('div', 'winsTitle');
   $winsTitle.innerText = name + ' wins';
 
   return $winsTitle;
